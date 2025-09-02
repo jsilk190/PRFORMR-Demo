@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Locally – Home</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body onload="populateLocalHome()">
+  <!-- Top bar -->
+  <div class="top-bar">
+    <div class="logo">Locally</div>
+    <div class="center-text">Home</div>
+    <div style="display:flex;align-items:center;gap:0.5rem;">
+      <div class="message-icon" style="cursor:pointer;" onclick="toggleMessageBoard()">💬</div>
+      <div class="profile"></div>
+      <div class="dropdown">
+        <a href="local_home.html">Home</a>
+        <a href="local_discover.html">Discover</a>
+        <a href="near_me.html">Near Me</a>
+        <a href="search.html">Search</a>
+        <a href="#" onclick="logout()">Sign out</a>
+      </div>
+    </div>
+  </div>
+  <!-- Sticky strip with segmented control and chips -->
+  <div style="position:sticky; top:64px; background-color: var(--sand); padding:0.5rem; z-index:999; border-bottom:1px solid rgba(0,0,0,0.05);">
+    <div style="display:flex; justify-content:center; margin-bottom:0.5rem;">
+      <div style="display:inline-flex; background-color: var(--bone); border-radius: 12px; overflow:hidden;">
+        <button id="seg-for-you" onclick="switchLocalFeed('for-you')" style="padding:0.4rem 1rem; border:none; background-color: var(--cerulean); color: var(--bone);">For You</button>
+        <button id="seg-following" onclick="switchLocalFeed('following')" style="padding:0.4rem 1rem; border:none; background-color: transparent; color: var(--night);">Following</button>
+      </div>
+    </div>
+    <div style="display:flex; gap:0.5rem; overflow-x:auto;">
+      <button class="chip" onclick="filterLocalHome('tonight')">Tonight</button>
+      <button class="chip" onclick="filterLocalHome('nearby')">Nearby</button>
+      <button class="chip" onclick="filterLocalHome('weekend')">This Weekend</button>
+      <button class="chip" onclick="filterLocalHome('all')">Genres</button>
+      <button class="chip" onclick="filterLocalHome('all')">Free</button>
+      <button class="chip" onclick="filterLocalHome('all')">All Ages</button>
+      <button class="chip" onclick="filterLocalHome('recommended')">Trending near you</button>
+    </div>
+  </div>
+  <!-- Content area -->
+  <div class="content" id="local-home-content"></div>
+  <!-- Bottom nav for local -->
+  <div class="bottom-nav-local">
+    <div class="nav-item" data-page="post" onclick="window.location.href='post.html'">
+      <div>📷</div>
+      <span>Post</span>
+    </div>
+    <div class="nav-item" data-page="discover" onclick="window.location.href='local_discover.html'">
+      <div>🧺</div>
+      <span>Discover</span>
+    </div>
+    <div class="nav-item" data-page="home" onclick="window.location.href='local_home.html'">
+      <div>🏠</div>
+      <span>Home</span>
+    </div>
+    <div class="nav-item" data-page="near" onclick="window.location.href='near_me.html'">
+      <div>📍</div>
+      <span>Near Me</span>
+    </div>
+    <div class="nav-item" data-page="search" onclick="window.location.href='search.html'">
+      <div>🔍</div>
+      <span>Search</span>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

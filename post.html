@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Locally – Post</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body onload="populatePost()">
+  <!-- Top bar -->
+  <div class="top-bar">
+    <div class="logo">Locally</div>
+    <div class="center-text">Post</div>
+    <div style="display:flex;align-items:center;gap:0.5rem;">
+      <div class="message-icon" style="cursor:pointer;" onclick="toggleMessageBoard()">💬</div>
+      <div class="profile"></div>
+      <div class="dropdown">
+        <a href="local_home.html">Home</a>
+        <a href="local_discover.html">Discover</a>
+        <a href="near_me.html">Near Me</a>
+        <a href="search.html">Search</a>
+        <a href="#" onclick="logout()">Sign out</a>
+      </div>
+    </div>
+  </div>
+  <!-- Content area -->
+  <div class="content" id="post-content" style="padding-top:80px; padding-bottom:80px;"></div>
+  <!-- Bottom nav -->
+  <div class="bottom-nav-local">
+    <div class="nav-item" data-page="post" onclick="window.location.href='post.html'">
+      <div>📷</div>
+      <span>Post</span>
+    </div>
+    <div class="nav-item" data-page="discover" onclick="window.location.href='local_discover.html'">
+      <div>🧺</div>
+      <span>Discover</span>
+    </div>
+    <div class="nav-item" data-page="home" onclick="window.location.href='local_home.html'">
+      <div>🏠</div>
+      <span>Home</span>
+    </div>
+    <div class="nav-item" data-page="near" onclick="window.location.href='near_me.html'">
+      <div>📍</div>
+      <span>Near Me</span>
+    </div>
+    <div class="nav-item" data-page="search" onclick="window.location.href='search.html'">
+      <div>🔍</div>
+      <span>Search</span>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

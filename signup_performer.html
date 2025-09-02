@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Locally – Performer Sign Up</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="content" style="padding-top:120px; max-width:600px;">
+    <div class="card">
+      <h2>Performer Profile</h2>
+      <form id="signup-performer" onsubmit="handleSignUp('performer')(event)">
+        <label>First name</label>
+        <input type="text" name="first_name" required>
+        <label>Last name</label>
+        <input type="text" name="last_name" required>
+        <label>Performer/stage name (optional)</label>
+        <input type="text" name="stage_name">
+        <label>Address</label>
+        <input type="text" name="location" required>
+        <label>Create a username</label>
+        <input type="text" name="username" required>
+        <label>Create a password</label>
+        <input type="password" name="password" required>
+        <label>What type of performer are you?</label>
+        <select name="performer_type">
+          <option value="musician">Musician</option>
+          <option value="comedian">Comedian</option>
+          <option value="magician">Magician</option>
+          <option value="actor">Actor</option>
+        </select>
+        <label>Genre or specialty</label>
+        <input type="text" name="genre">
+        <label>Preferred venue type</label>
+        <input type="text" name="preferred_venue">
+        <label>Describe desired atmosphere in one sentence</label>
+        <textarea name="atmosphere"></textarea>
+        <label>How much do you charge?</label>
+        <select name="charge">
+          <option value="<100">Less than 100</option>
+          <option value="100-200">100–200</option>
+          <option value="200-400">200–400</option>
+          <option value="400-600">400–600</option>
+          <option value="600+">600+</option>
+        </select>
+        <div id="signup-error" class="error" style="color: var(--terracotta);"></div>
+        <button type="submit">Sign Up</button>
+      </form>
+      <p style="margin-top:1rem;"><a href="signup.html">Back</a></p>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

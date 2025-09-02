@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Locally – Discover</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body onload="populateLocalDiscover()">
+  <!-- Top bar -->
+  <div class="top-bar">
+    <div class="logo">Locally</div>
+    <div class="center-text">Discover</div>
+    <div style="display:flex;align-items:center;gap:0.5rem;">
+      <div class="message-icon" style="cursor:pointer;" onclick="toggleMessageBoard()">💬</div>
+      <div class="profile"></div>
+      <div class="dropdown">
+        <a href="local_home.html">Home</a>
+        <a href="local_discover.html">Discover</a>
+        <a href="near_me.html">Near Me</a>
+        <a href="search.html">Search</a>
+        <a href="#" onclick="logout()">Sign out</a>
+      </div>
+    </div>
+  </div>
+  <!-- Sticky search and chips strip -->
+  <div style="position:sticky; top:64px; background-color: var(--sand); padding:0.5rem; z-index:999; border-bottom:1px solid rgba(0,0,0,0.05);">
+    <div style="display:flex; justify-content:center; margin-bottom:0.5rem;">
+      <input type="text" placeholder="Search shows, performers, venues…" style="width:100%; max-width:900px; padding:0.5rem 0.75rem; border-radius:12px; border:1px solid rgba(0,0,0,0.15); background-color: var(--bone); color: var(--night);" />
+    </div>
+    <div style="display:flex; gap:0.5rem; overflow-x:auto;">
+      <button class="chip" onclick="filterDiscover('tonight')">Tonight</button>
+      <button class="chip" onclick="filterDiscover('this-weekend')">This Weekend</button>
+      <button class="chip" onclick="filterDiscover('nearby')">Nearby</button>
+      <button class="chip" onclick="filterDiscover('free')">Free</button>
+      <button class="chip" onclick="filterDiscover('all-ages')">All Ages</button>
+      <button class="chip" onclick="filterDiscover('open-mic')">Open mic</button>
+    </div>
+  </div>
+  <!-- Feed -->
+  <div class="content" id="local-discover-feed"></div>
+  <!-- Bottom nav -->
+  <div class="bottom-nav-local">
+    <div class="nav-item" data-page="post" onclick="window.location.href='post.html'">
+      <div>📷</div>
+      <span>Post</span>
+    </div>
+    <div class="nav-item" data-page="discover" onclick="window.location.href='local_discover.html'">
+      <div>🧺</div>
+      <span>Discover</span>
+    </div>
+    <div class="nav-item" data-page="home" onclick="window.location.href='local_home.html'">
+      <div>🏠</div>
+      <span>Home</span>
+    </div>
+    <div class="nav-item" data-page="near" onclick="window.location.href='near_me.html'">
+      <div>📍</div>
+      <span>Near Me</span>
+    </div>
+    <div class="nav-item" data-page="search" onclick="window.location.href='search.html'">
+      <div>🔍</div>
+      <span>Search</span>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

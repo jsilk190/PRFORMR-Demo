@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Locally – Venue Sign Up</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="content" style="padding-top:120px; max-width:600px;">
+    <div class="card">
+      <h2>Venue Profile</h2>
+      <form id="signup-venue" onsubmit="handleSignUp('venue')(event)">
+        <label>Name of venue</label>
+        <input type="text" name="name" required>
+        <label>What type of venue are you?</label>
+        <input type="text" name="venue_type" required>
+        <label>Where are you located?</label>
+        <input type="text" name="location" required>
+        <label>What’s your budget for a performer?</label>
+        <select name="budget">
+          <option value="<100">Less than 100</option>
+          <option value="100-200">100–200</option>
+          <option value="200-400">200–400</option>
+          <option value="400-600">400–600</option>
+          <option value="600+">600+</option>
+        </select>
+        <label>Preferred act</label>
+        <select name="preferred_act">
+          <option value="musician">Musician</option>
+          <option value="comedian">Comedian</option>
+          <option value="magician">Magician</option>
+          <option value="actor">Actor</option>
+        </select>
+        <label>Specific genre/type</label>
+        <input type="text" name="genre">
+        <label>Describe venue atmosphere in one sentence</label>
+        <textarea name="atmosphere"></textarea>
+        <label>Create a username</label>
+        <input type="text" name="username" required>
+        <label>Create a password</label>
+        <input type="password" name="password" required>
+        <div id="signup-error" class="error" style="color: var(--terracotta);"></div>
+        <button type="submit">Sign Up</button>
+      </form>
+      <p style="margin-top:1rem;"><a href="signup.html">Back</a></p>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

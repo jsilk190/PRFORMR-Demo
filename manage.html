@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Locally – Manage</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body onload="populateManage()">
+  <!-- Top bar -->
+  <div class="top-bar">
+    <div class="logo">Locally</div>
+    <div class="center-text">Manage</div>
+    <div class="profile"></div>
+    <div class="dropdown">
+      <a href="manage.html">View Profile</a>
+      <a href="manage.html#role">Switch Role</a>
+      <a href="manage.html#wallet">Wallet / Billing</a>
+      <a href="manage.html#settings">Settings</a>
+      <a href="#" onclick="logout()">Sign out</a>
+    </div>
+  </div>
+  <!-- Content -->
+  <div class="content">
+    <div class="manage-tabs">
+      <div class="tab active" data-section="profile">Profile</div>
+      <div class="tab" data-section="wallet">Wallet</div>
+      <div class="tab" data-section="billing">Billing</div>
+      <div class="tab" data-section="notifications">Notifications</div>
+      <div class="tab" data-section="safety">Safety & Privacy</div>
+    </div>
+    <div id="profile" class="manage-section active">
+      <h3>Your Profile</h3>
+      <p>Update your basic information.</p>
+      <form>
+        <label>Name</label>
+        <input type="text" value="" disabled>
+        <label>Location</label>
+        <input type="text" value="" disabled>
+        <button type="button" disabled>Save</button>
+      </form>
+    </div>
+    <div id="wallet" class="manage-section">
+      <h3>Wallet</h3>
+      <p>Connect your payout method.</p>
+      <button disabled>Add Payout Method</button>
+    </div>
+    <div id="billing" class="manage-section">
+      <h3>Billing</h3>
+      <p>Manage your payment methods.</p>
+      <button disabled>Add Payment Method</button>
+    </div>
+    <div id="notifications" class="manage-section">
+      <h3>Notifications</h3>
+      <p>Choose what you want to be notified about.</p>
+      <label style="display:flex; align-items:center;">
+        <input type="checkbox" checked disabled style="margin-right:0.5rem;"> Bookings
+      </label>
+      <label style="display:flex; align-items:center;">
+        <input type="checkbox" checked disabled style="margin-right:0.5rem;"> Messages
+      </label>
+      <label style="display:flex; align-items:center;">
+        <input type="checkbox" disabled style="margin-right:0.5rem;"> Payments
+      </label>
+    </div>
+    <div id="safety" class="manage-section">
+      <h3>Safety & Privacy</h3>
+      <p>Block or report users and control who can request you.</p>
+      <button disabled>Manage Block List</button>
+    </div>
+  </div>
+  <!-- Bottom nav -->
+  <div class="bottom-nav">
+    <div class="nav-item" data-page="messages" onclick="window.location.href='messages.html'">
+      <div>💬</div>
+      <span>Messages</span>
+    </div>
+    <div class="nav-item" data-page="calendar" onclick="window.location.href='calendar.html'">
+      <div>📅</div>
+      <span>Calendar</span>
+    </div>
+    <div class="nav-item" data-page="match" onclick="window.location.href='match.html'">
+      <div>⭐</div>
+      <span>Match</span>
+    </div>
+    <div class="nav-item" data-page="discover" onclick="window.location.href='discover.html'">
+      <div>🧭</div>
+      <span>Discover</span>
+    </div>
+    <div class="nav-item" data-page="manage" onclick="window.location.href='manage.html'">
+      <div>⚙️</div>
+      <span>Manage</span>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

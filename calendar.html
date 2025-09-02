@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Locally – Calendar</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body onload="populateCalendar()">
+  <!-- Top bar -->
+  <div class="top-bar">
+    <div class="logo">Locally</div>
+    <div class="center-text">Calendar</div>
+    <div class="profile"></div>
+    <div class="dropdown">
+      <a href="manage.html">View Profile</a>
+      <a href="manage.html#role">Switch Role</a>
+      <a href="manage.html#wallet">Wallet / Billing</a>
+      <a href="manage.html#settings">Settings</a>
+      <a href="#" onclick="logout()">Sign out</a>
+    </div>
+  </div>
+  <!-- Content -->
+  <div class="content">
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
+      <button class="secondary" disabled>‹</button>
+      <h3 id="calendar-month"></h3>
+      <button class="secondary" disabled>›</button>
+    </div>
+    <div id="calendar-grid" class="calendar-grid"></div>
+  </div>
+  <!-- Bottom nav -->
+  <div class="bottom-nav">
+    <div class="nav-item" data-page="messages" onclick="window.location.href='messages.html'">
+      <div>💬</div>
+      <span>Messages</span>
+    </div>
+    <div class="nav-item" data-page="calendar" onclick="window.location.href='calendar.html'">
+      <div>📅</div>
+      <span>Calendar</span>
+    </div>
+    <div class="nav-item" data-page="match" onclick="window.location.href='match.html'">
+      <div>⭐</div>
+      <span>Match</span>
+    </div>
+    <div class="nav-item" data-page="discover" onclick="window.location.href='discover.html'">
+      <div>🧭</div>
+      <span>Discover</span>
+    </div>
+    <div class="nav-item" data-page="manage" onclick="window.location.href='manage.html'">
+      <div>⚙️</div>
+      <span>Manage</span>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

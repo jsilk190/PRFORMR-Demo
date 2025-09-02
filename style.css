@@ -1,0 +1,637 @@
+/*
+  Locally App - Comprehensive Styles
+  
+  This stylesheet defines the visual language for the Locally application as
+  specified in the detailed app plan. Colours, radii and typography tokens
+  follow the Indie Coffeehouse palette: Sand, Bone, Night, Espresso,
+  Cerulean and Terracotta. Cards use a soft shadow and generous rounded
+  corners. The top and bottom navigation bars are fixed to provide a
+  consistent shell across all pages. Additional utility classes help
+  construct quick tiles, lists and panels used throughout the app.
+*/
+
+/* Colour variables */
+:root {
+  --sand: #E8DCCB;        /* page background */
+  --bone: #F5EFE8;        /* inputs/cards */
+  --night: #1F1E22;       /* primary text/icons */
+  --espresso: #3A2E2A;    /* headings/accents */
+  --cerulean: #2E7DA1;    /* bars, primary CTAs */
+  --terracotta: #C66A3D;  /* errors/destructive */
+  --radius-card: 16px;
+  --radius-input: 12px;
+  --shadow-soft: 0 2px 4px rgba(0, 0, 0, 0.12);
+}
+
+/* Base layout */
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background-color: var(--sand);
+  color: var(--night);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+h1, h2, h3, h4 {
+  margin: 0 0 0.5rem 0;
+  color: var(--espresso);
+}
+
+p {
+  margin: 0 0 1rem 0;
+}
+
+a {
+  color: var(--cerulean);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Top navigation bar */
+.top-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 64px;
+  background-color: var(--cerulean);
+  color: var(--bone);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+  z-index: 1000;
+}
+.top-bar .logo {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+.top-bar .center-text {
+  font-size: 1rem;
+  font-weight: 600;
+}
+.top-bar .profile {
+  cursor: pointer;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  background-color: var(--bone);
+  color: var(--night);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+}
+.dropdown {
+  position: absolute;
+  right: 1rem;
+  top: 64px;
+  background-color: var(--bone);
+  color: var(--night);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-soft);
+  padding: 0.5rem 0;
+  display: none;
+  min-width: 200px;
+}
+.dropdown a {
+  display: block;
+  padding: 0.5rem 1rem;
+  color: var(--night);
+}
+.dropdown a:hover {
+  background-color: var(--sand);
+}
+
+/* Bottom navigation bar */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 64px;
+  background-color: var(--cerulean);
+  color: var(--bone);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 1000;
+}
+.bottom-nav .nav-item {
+  flex: 1;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+}
+.bottom-nav .nav-item span {
+  display: block;
+  font-size: 0.75rem;
+}
+.bottom-nav .nav-item.active {
+  font-weight: 600;
+}
+.bottom-nav .nav-item.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 25%;
+  right: 25%;
+  height: 2px;
+  background-color: var(--bone);
+}
+
+/* Local bottom navigation bar with five tabs */
+.bottom-nav-local {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 64px;
+  background-color: var(--cerulean);
+  color: var(--bone);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 1000;
+}
+.bottom-nav-local .nav-item {
+  flex: 1;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+  font-size: 0.75rem;
+}
+.bottom-nav-local .nav-item.active {
+  font-weight: 600;
+}
+.bottom-nav-local .nav-item.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 25%;
+  right: 25%;
+  height: 2px;
+  background-color: var(--bone);
+}
+
+/* Local home sections and cards */
+.local-section {
+  margin-bottom: 1.5rem;
+}
+.local-section h3 {
+  margin-bottom: 0.5rem;
+  color: var(--espresso);
+}
+.local-card {
+  background-color: var(--bone);
+  border-radius: var(--radius-card);
+  padding: 0.75rem 1rem;
+  margin-bottom: 0.5rem;
+  box-shadow: var(--shadow-soft);
+}
+.local-card.outlined {
+  border: 1px solid var(--terracotta);
+}
+
+/* Post page options */
+.post-option {
+  background-color: var(--bone);
+  border-radius: var(--radius-card);
+  padding: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: var(--shadow-soft);
+  cursor: pointer;
+  transition: transform 0.1s;
+}
+.post-option:hover {
+  transform: translateY(-2px);
+}
+.post-option p {
+  font-size: 0.875rem;
+  color: rgba(0,0,0,0.7);
+  margin-top: 0.25rem;
+}
+
+/* Discover cards for local discover */
+.discover-card {
+  background-color: var(--bone);
+  border-radius: var(--radius-card);
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+  box-shadow: var(--shadow-soft);
+}
+.discover-card .actions {
+  margin-top: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.discover-card .actions button {
+  font-size: 0.75rem;
+  padding: 0.3rem 0.6rem;
+}
+
+/* Near me cards */
+.near-card {
+  background-color: var(--bone);
+  border-radius: var(--radius-card);
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+  box-shadow: var(--shadow-soft);
+}
+.near-card button {
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  padding: 0.35rem 0.8rem;
+}
+
+/* Search result cards */
+.search-card {
+  background-color: var(--bone);
+  border-radius: var(--radius-card);
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+  box-shadow: var(--shadow-soft);
+}
+.search-card .actions {
+  margin-top: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.search-card .actions button {
+  font-size: 0.75rem;
+  padding: 0.3rem 0.6rem;
+}
+
+/* Page content wrapper to account for fixed bars */
+.content {
+  padding: 80px 16px 80px 16px; /* top & bottom offsets for nav bars */
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Card element */
+.card {
+  background-color: var(--bone);
+  border-radius: var(--radius-card);
+  padding: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: var(--shadow-soft);
+}
+
+/* Quick tile style for home page */
+.tile {
+  background-color: var(--bone);
+  border-radius: var(--radius-card);
+  padding: 1rem;
+  box-shadow: var(--shadow-soft);
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100px;
+}
+.tile h3 {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+.tile p {
+  font-size: 0.875rem;
+  color: var(--night);
+}
+.tile button {
+  align-self: flex-start;
+}
+
+/* Buttons */
+button {
+  background-color: var(--cerulean);
+  color: var(--bone);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-input);
+  font-size: 1rem;
+  cursor: pointer;
+}
+button.secondary {
+  background-color: var(--bone);
+  color: var(--night);
+  border: 1px solid var(--night);
+}
+button:hover {
+  opacity: 0.9;
+}
+
+/* Forms */
+label {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-weight: bold;
+}
+input[type="text"],
+input[type="password"],
+input[type="file"],
+select,
+textarea {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: var(--radius-input);
+  background-color: var(--bone);
+  color: var(--night);
+  box-sizing: border-box;
+}
+textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+/* Message page layout */
+.messages-page {
+  /* Position the messages pane between the fixed top and bottom bars */
+  position: absolute;
+  top: 64px;
+  bottom: 64px;
+  left: 0;
+  right: 0;
+  display: flex;
+}
+.thread-list {
+  width: 260px;
+  border-right: 1px solid rgba(0,0,0,0.1);
+  background-color: var(--bone);
+  overflow-y: auto;
+}
+.thread-item {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+.thread-item:hover {
+  background-color: var(--sand);
+}
+.thread-item .avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: var(--cerulean);
+  color: var(--bone);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  margin-right: 0.5rem;
+}
+.thread-item.unread .avatar {
+  position: relative;
+}
+.thread-item.unread .avatar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--terracotta);
+}
+.chat-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--sand);
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120' fill='none' opacity='0.05'><text x='0' y='20' font-size='20'>🎸🎤🎭🍽️</text></svg>");
+  background-repeat: repeat;
+}
+.chat-header {
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  background-color: var(--bone);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.chat-messages {
+  flex: 1;
+  padding: 1rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+.message {
+  max-width: 70%;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--radius-input);
+}
+.message.you {
+  background-color: #EEF3F1;
+  align-self: flex-end;
+}
+.message.them {
+  background-color: var(--bone);
+  align-self: flex-start;
+}
+.chat-compose {
+  padding: 0.5rem;
+  background-color: var(--bone);
+  display: flex;
+  gap: 0.5rem;
+}
+.chat-compose input[type="text"] {
+  flex: 1;
+  margin-bottom: 0;
+}
+
+/* Calendar layout */
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+  background-color: var(--bone);
+  padding: 8px;
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-soft);
+}
+.calendar-cell {
+  background-color: var(--bone);
+  border: 1px solid rgba(0,0,0,0.05);
+  min-height: 80px;
+  position: relative;
+  padding: 2px;
+  font-size: 0.75rem;
+}
+.calendar-cell .date {
+  font-weight: bold;
+}
+.calendar-event {
+  margin-top: 2px;
+  padding-left: 2px;
+  border-left: 4px solid var(--cerulean);
+  font-size: 0.7rem;
+}
+.calendar-event.hold {
+  border-color: #6E8F83;
+}
+.calendar-event.confirmed {
+  border-color: var(--espresso);
+}
+
+/* Match cards */
+.match-card {
+  background-color: var(--bone);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-soft);
+  margin-bottom: 1rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.match-card .header {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem;
+}
+.match-card .header .avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--cerulean);
+  color: var(--bone);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 0.75rem;
+  font-weight: bold;
+}
+.match-card .header .score {
+  margin-left: auto;
+  background-color: var(--cerulean);
+  color: var(--bone);
+  padding: 0.25rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+}
+.match-card .media {
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%; /* 16:9 ratio */
+  background-color: #ddd;
+  position: relative;
+}
+.match-card .media img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.match-card .chips {
+  padding: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+.chip {
+  background-color: var(--bone);
+  border: 1px solid rgba(0,0,0,0.15);
+  border-radius: var(--radius-input);
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+  color: var(--cerulean);
+}
+.match-card .meta {
+  padding: 0.5rem;
+  font-size: 0.8rem;
+  color: var(--night);
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.match-card .actions {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.75rem;
+  border-top: 1px solid rgba(0,0,0,0.05);
+}
+.match-card .actions button {
+  font-size: 0.85rem;
+  padding: 0.4rem 0.6rem;
+}
+
+/* Discover page cards reuse match card styles with slight tweaks */
+.show-card, .performer-card, .venue-card, .news-card {
+  background-color: var(--bone);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-soft);
+  margin-bottom: 1rem;
+  overflow: hidden;
+}
+.show-card .header, .performer-card .header, .venue-card .header, .news-card .header {
+  padding: 0.75rem;
+  background-color: var(--bone);
+  display: flex;
+  align-items: center;
+}
+.show-card .banner, .performer-card .media, .venue-card .gallery, .news-card .thumb {
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%;
+  background-color: #ddd;
+  position: relative;
+}
+.show-card .banner img, .performer-card .media img, .venue-card .gallery img, .news-card .thumb img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.show-card .actions, .performer-card .actions, .venue-card .actions, .news-card .actions {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.5rem;
+}
+.show-card .actions button, .performer-card .actions button, .venue-card .actions button, .news-card .actions button {
+  font-size: 0.8rem;
+  padding: 0.4rem 0.6rem;
+}
+
+/* Manage page tabs */
+.manage-tabs {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  overflow-x: auto;
+}
+.manage-tabs .tab {
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-input);
+  cursor: pointer;
+  background-color: var(--bone);
+  color: var(--night);
+  white-space: nowrap;
+}
+.manage-tabs .tab.active {
+  background-color: var(--cerulean);
+  color: var(--bone);
+}
+.manage-section {
+  display: none;
+}
+.manage-section.active {
+  display: block;
+}
