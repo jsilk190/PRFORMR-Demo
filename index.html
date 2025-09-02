@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Locally – Login</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="content" style="padding-top: 120px; max-width: 400px;">
+    <div class="card">
+      <h2>Login</h2>
+      <form id="login-form" onsubmit="handleLogin(event)">
+        <label for="username">Username</label>
+        <input type="text" name="username" required>
+        <label for="password">Password</label>
+        <input type="password" name="password" required>
+        <div id="login-error" class="error" style="color: var(--terracotta);"></div>
+        <button type="submit">Login</button>
+      </form>
+      <p style="margin-top:1rem; font-size:0.9rem;">First time? <a href="signup.html">Create an account</a></p>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
